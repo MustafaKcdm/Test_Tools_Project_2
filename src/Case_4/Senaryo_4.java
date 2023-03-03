@@ -27,6 +27,7 @@ public class Senaryo_4 extends BaseDriver {
         aksiyon.perform();
         WebElement error=driver.findElement(By.xpath("//*[text()='Login was unsuccessful. Please correct the errors and try again.']"));
         Assert.assertTrue("Login Başarısız",error.isDisplayed());
+        BekleKapat();
 
 
 

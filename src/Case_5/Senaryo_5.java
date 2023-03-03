@@ -96,7 +96,7 @@ public class Senaryo_5 extends BaseDriver {
         aksiyon.perform();
         WebElement text = driver.findElement(By.xpath("//*[text()='Your order has been successfully processed!'] "));
         Assert.assertTrue("Test Başarısız", text.isDisplayed());
-
+        BekleKapat();
 
 
 
