@@ -8,7 +8,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Senaryo_5 extends BaseDriver {
     @Test
@@ -74,23 +78,34 @@ public class Senaryo_5 extends BaseDriver {
         WebElement continue1 = driver.findElement(By.cssSelector("[title='Continue'][onclick='Billing.save()']"));
         aksiyon= aksiyonlar.moveToElement(continue1).click().build();
         aksiyon.perform();
-        My_Func.Bekle(2);
+        WebDriverWait bekle=new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        bekle.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[title='Continue'][onclick='Shipping.save()']")));
+       // My_Func.Bekle(2);
         WebElement continue2 = driver.findElement(By.cssSelector("[title='Continue'][onclick='Shipping.save()']"));
         aksiyon= aksiyonlar.moveToElement(continue2).click().build();
         aksiyon.perform();
-        My_Func.Bekle(2);
+
+        bekle.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='button'][onclick='ShippingMethod.save()']")));
+       // My_Func.Bekle(2);
         WebElement continue3 = driver.findElement(By.cssSelector("[type='button'][onclick='ShippingMethod.save()']"));
         aksiyon= aksiyonlar.moveToElement(continue3).click().build();
         aksiyon.perform();
-        My_Func.Bekle(2);
+
+        bekle.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='button'][onclick='PaymentMethod.save()']")));
+        //My_Func.Bekle(2);
         WebElement continue4 = driver.findElement(By.cssSelector("[type='button'][onclick='PaymentMethod.save()']"));
         aksiyon= aksiyonlar.moveToElement(continue4).click().build();
         aksiyon.perform();
-        My_Func.Bekle(1);
+
+        bekle.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='button'][onclick='PaymentInfo.save()']")));
+        //My_Func.Bekle(1);
         WebElement continue5 = driver.findElement(By.cssSelector("[type='button'][onclick='PaymentInfo.save()']"));
         aksiyon= aksiyonlar.moveToElement(continue5).click().build();
         aksiyon.perform();
-        My_Func.Bekle(1);
+
+        bekle.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='button'][onclick='ConfirmOrder.save()']")));
+        // My_Func.Bekle(1);
         WebElement continue6 = driver.findElement(By.cssSelector("[type='button'][onclick='ConfirmOrder.save()']"));
         aksiyon= aksiyonlar.moveToElement(continue6).click().build();
         aksiyon.perform();
