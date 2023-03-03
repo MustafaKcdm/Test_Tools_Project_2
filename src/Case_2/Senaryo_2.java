@@ -1,4 +1,4 @@
-package Case_1;
+package Case_2;
 
 import Utility.BaseDriver;
 import org.junit.Assert;
@@ -8,10 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
-public class Senaryo_1 extends BaseDriver{
+public class Senaryo_2 extends BaseDriver {
     @Test
 
-    public void senaryo1(){
+    public void Senaryo2(){
 
         driver.get("https://demowebshop.tricentis.com");
 
@@ -34,7 +34,7 @@ public class Senaryo_1 extends BaseDriver{
         aksiyon.perform();
 
         WebElement emailTB = driver.findElement(By.cssSelector("input[id='Email']"));
-        aksiyon = aksiyonlar.moveToElement(emailTB).click().sendKeys("studygroupuc3@gmail.com").build();
+        aksiyon = aksiyonlar.moveToElement(emailTB).click().sendKeys("studygroupuc@gmail.com").build();
         aksiyon.perform();
 
         WebElement pwTB = driver.findElement(By.cssSelector("[id='Password']"));
@@ -49,9 +49,9 @@ public class Senaryo_1 extends BaseDriver{
         aksiyon= aksiyonlar.moveToElement(registerButton).click().build();
         aksiyon.perform();
 
-        WebElement result=driver.findElement(By.xpath("//div[@class='result']"));
+        WebElement result=driver.findElement(By.xpath("//li[text()='The specified email already exists']"));
 
-        Assert.assertEquals("Kayıt Başarısız", "Your registration completed", result.getText());
+        Assert.assertEquals("Test Başarısız", "The specified email already exists", result.getText());
 
 
         BekleKapat();
